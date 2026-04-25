@@ -52,9 +52,4 @@ public class ProfileController {
         }
     }
 
-    @DeleteMapping("/account")
-    public ResponseEntity<String> deleteCurrentProfile() {
-        profileService.deleteCurrentProfile();
-        return ResponseEntity.ok("Your account has been deleted");
-    }
 }

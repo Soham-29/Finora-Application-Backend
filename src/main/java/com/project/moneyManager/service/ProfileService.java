@@ -119,11 +119,6 @@ public class ProfileService {
                 .orElseThrow(()->new UsernameNotFoundException("Profile not found with email: "+authentication.getName()));
     }
 
-    public void deleteCurrentProfile() {
-        ProfileEntity current = getCurrentProfile();
-        profileRepository.delete(current);
-    }
-
     public ProfileDto getPublicProfile (String email)
     {
         ProfileEntity currentUser = null;
