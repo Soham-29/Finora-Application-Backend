@@ -26,8 +26,8 @@ public class NotificationService {
     @Value("{money.manager.frontend.url}")
     private String frontendURL;
 
-    @Scheduled(cron = "0 * * * * *",zone = "IST")
-   // @Scheduled(cron = "0 0 22 * * *",zone = "IST")
+    //@Scheduled(cron = "0 * * * * *",zone = "IST")
+   @Scheduled(cron = "0 0 22 * * *",zone = "IST")
     public void sendDailyIncomeExpenseReminder()
     {
         log.info("Job Started: sendDailyIncomeExpenseReminder()");
@@ -180,8 +180,8 @@ public class NotificationService {
 //        log.info("Job Completed: sendDailyExpenseSummary()");
 //    }
 
-    @Scheduled(cron = "0 * * * * *",zone = "IST")
-//    @Scheduled(cron = "0 0 23 * * *",zone = "IST")
+    //@Scheduled(cron = "0 * * * * *",zone = "IST")
+    @Scheduled(cron = "0 0 23 * * *",zone = "IST")
     public void sendDailyFinancialSummary()
     {
         log.info("Job Started: sendDailyFinancialSummary()");
