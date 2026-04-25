@@ -25,12 +25,12 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     private final JwtUtils jwtUtils;
 
     private static final List<String> PUBLIC_ENDPOINTS = List.of(
-            "/register",
-            "/login",
-            "/activate",
-            "/status",
-            "/health",
-            "/check"
+            "/api/v1.0/register",
+            "/api/v1.0/login",
+            "/api/v1.0/activate",
+            "/api/v1.0/health",
+            "/api/v1.0/status",
+            "/api/v1.0/check"
     );
 
     @Override
@@ -39,10 +39,10 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                                     FilterChain filterChain)
             throws ServletException, IOException {
 
-        String path = request.getServletPath();
+        String path = request.getRequestURI();
 
-        // Skip JWT validation for public endpoints
-        if (PUBLIC_ENDPOINTS.stream().anyMatch(path::contains)) {
+        // 🔥 VERY IMPORTANT: skip BEFORE touching JWT
+        if (PUBLIC_ENDPOINTS.stream().anyMatch(path::startsWith)) {
             filterChain.doFilter(request, response);
             return;
         }
@@ -51,20 +51,18 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         String email = null;
         String jwt = null;
 
-        // Extract token safely
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
             jwt = authHeader.substring(7);
 
             try {
                 email = jwtUtils.extractEmail(jwt);
             } catch (Exception e) {
-                // Token expired or invalid → ignore and continue
+                // 🔥 Ignore expired/invalid token
                 filterChain.doFilter(request, response);
                 return;
             }
         }
 
-        // Authenticate user if valid token
         if (email != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             UserDetails userDetails = this.userDetailsService.loadUserByUsername(email);
 
