@@ -17,7 +17,7 @@ public class ProfileDto {
     private String fullName;
     private String email;
     private String password;
-    private String profielImgUrl;
+    private String profileImgUrl;
     private LocalDateTime createdAt;
     private  LocalDateTime updatedAt;
 

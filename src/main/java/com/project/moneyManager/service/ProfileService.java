@@ -101,7 +101,7 @@ public class ProfileService {
                 .fullName(profileDto.getFullName())
                 .email(profileDto.getEmail())
                 .password(passwordEncoder.encode(profileDto.getPassword()))
-                .profielImgUrl(profileDto.getProfielImgUrl())
+                .profileImgUrl(profileDto.getProfileImgUrl())
                 .createdAt(profileDto.getCreatedAt())
                 .updatedAt(profileDto.getUpdatedAt())
                 .build();
@@ -112,7 +112,7 @@ public class ProfileService {
                 .id(profileEntity.getId())
                 .fullName(profileEntity.getFullName())
                 .email(profileEntity.getEmail())
-                .profielImgUrl(profileEntity.getProfielImgUrl())
+                .profileImgUrl(profileEntity.getProfileImgUrl())
                 .createdAt(profileEntity.getCreatedAt())
                 .updatedAt(profileEntity.getUpdatedAt())
                 .build();
@@ -154,7 +154,7 @@ public class ProfileService {
                 .id(currentUser.getId())
                 .fullName(currentUser.getFullName())
                 .email(currentUser.getEmail())
-                .profielImgUrl(currentUser.getProfielImgUrl())
+                .profileImgUrl(currentUser.getProfileImgUrl())
                 .createdAt(currentUser.getCreatedAt())
                 .updatedAt(currentUser.getUpdatedAt())
                 .build();
