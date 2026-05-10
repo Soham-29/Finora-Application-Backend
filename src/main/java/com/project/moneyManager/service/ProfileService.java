@@ -43,7 +43,7 @@ public class ProfileService {
         // Activation link
         String activationLink = activationURL + "/api/v1.0/activate?token=" + newProfileEntity.getActivationToken();
 
-        String subject = "Activate Your Money Manager Account 🚀";
+        String subject = "Activate Your Finora Account 🚀";
 
         String body =
                 "<div style='font-family: Arial, sans-serif; background-color:#f4f6f8; padding:20px;'>"
@@ -51,7 +51,7 @@ public class ProfileService {
                         + "<div style='max-width:520px; margin:auto; background:#ffffff; border-radius:10px; padding:25px;'>"
 
                         // Header
-                        + "<h2 style='color:#333; text-align:center; margin-bottom:10px;'>Money Manager</h2>"
+                        + "<h2 style='color:#333; text-align:center; margin-bottom:10px;'>Finora</h2>"
 
                         // Greeting
                         + "<p style='font-size:14px; color:#555;'>Hi <b>" + newProfileEntity.getFullName() + "</b>,</p>"
@@ -84,7 +84,7 @@ public class ProfileService {
                         + "<hr style='margin:20px 0; border:none; border-top:1px solid #eee;'/>"
 
                         + "<p style='font-size:12px; color:#888; text-align:center;'>"
-                        + "Money Manager Team"
+                        + "Finora Team"
                         + "</p>"
 
                         + "</div></div>";

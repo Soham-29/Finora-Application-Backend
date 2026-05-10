@@ -1,8 +1,10 @@
 package com.project.moneyManager.service;
 
 import com.project.moneyManager.dto.ExpenseDto;
+import com.project.moneyManager.dto.IncomeDto;
 import com.project.moneyManager.entity.CategoryEntity;
 import com.project.moneyManager.entity.ExpenseEntity;
+import com.project.moneyManager.entity.IncomeEntity;
 import com.project.moneyManager.entity.ProfileEntity;
 import com.project.moneyManager.repository.CategoryRepository;
 import com.project.moneyManager.repository.ExpenseRepository;
@@ -41,6 +43,12 @@ public class ExpenseService {
         LocalDate startDate = now.withDayOfMonth(1);
         LocalDate endDate = now.withDayOfMonth(now.lengthOfMonth());
         List<ExpenseEntity> list = expenseRepository.findByProfileIdAndDateBetween(currentProfile.getId(), startDate, endDate);
+        return list.stream().map(this::toDto).toList();
+    }
+
+    public List<ExpenseDto> getAllExpensesForCurrentUser() {
+        ProfileEntity currentProfile = profileService.getCurrentProfile();
+        List<ExpenseEntity> list = expenseRepository.findByProfileIdOrderByDateDesc(currentProfile.getId());
         return list.stream().map(this::toDto).toList();
     }
 

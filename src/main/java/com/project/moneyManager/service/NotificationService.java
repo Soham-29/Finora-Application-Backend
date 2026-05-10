@@ -44,7 +44,7 @@ public class NotificationService {
                     + "</p>"
 
                     + "<p style='color:#555; font-size:15px;'>"
-                    + "This is your daily reminder to update your <b>income</b> and <b>expenses</b> in your Money Manager."
+                    + "This is your daily reminder to update your <b>income</b> and <b>expenses</b> in Finora - Your personal Money Manager."
                     + "</p>"
 
                     + "<p style='color:#555; font-size:15px;'>"
@@ -66,7 +66,7 @@ public class NotificationService {
 
                     + "<p style='color:#777; font-size:13px;'>"
                     + "Best regards,<br>"
-                    + "<b>Money Manager Team</b>"
+                    + "<b>Finora Team</b>"
                     + "</p>"
 
                     + "</div>"
@@ -285,7 +285,7 @@ public class NotificationService {
 
                         // Footer
                         + "<div style='background:#fafafa;padding:15px;text-align:center;font-size:12px;color:#777;'>"
-                        + "Best regards,<br><b>Money Manager Team</b>"
+                        + "Best regards,<br><b>Finora Team</b>"
                         + "</div>"
 
                         + "</div>"

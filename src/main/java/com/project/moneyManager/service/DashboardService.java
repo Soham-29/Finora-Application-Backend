@@ -61,7 +61,7 @@ public class DashboardService {
                     return cmp;
                 }).collect(Collectors.toList());
 
-        returnValue.put("totalBalace",incomeService.getTotalIncome().subtract(expenseService.getTotalExpense()));
+        returnValue.put("totalBalance",incomeService.getTotalIncome().subtract(expenseService.getTotalExpense()));
         returnValue.put("totalIncome",incomeService.getTotalIncome());
         returnValue.put("totalExpense",expenseService.getTotalExpense());
         returnValue.put("recent5Expense",latest5Expenses);
