@@ -33,11 +33,46 @@ Backend REST API for **Finora**, a Smart Money Management app built with **Sprin
 | JWT (jjwt 0.12.6) | Token-based Authentication |
 | PostgreSQL | Production Database |
 | MySQL | Local Development Database |
-| Spring Mail | Email Notifications |
+| Spring Mail + Brevo (SendinBlue) | Transactional Email Delivery |
 | Apache POI 5.3.0 | Excel Report Generation |
+| Cloudinary | Profile Image Storage & CDN |
 | Lombok | Boilerplate Reduction |
 | Docker | Containerization |
 | Java 21 | Language Version |
+
+---
+
+## 🌐 External Services
+
+| Service | Purpose |
+|---|---|
+| **Brevo (Sendinblue)** | Transactional emails — account activation, report delivery |
+| **Cloudinary** | Profile image upload, storage & CDN delivery |
+
+### Brevo Setup
+Brevo is used as the SMTP provider for sending emails. Configure it in `application.properties`:
+
+```properties
+spring.mail.host=smtp-relay.brevo.com
+spring.mail.port=587
+spring.mail.username=your_brevo_login_email
+spring.mail.password=your_brevo_smtp_key
+spring.mail.properties.mail.smtp.auth=true
+spring.mail.properties.mail.smtp.starttls.enable=true
+```
+
+> Get your SMTP key from: Brevo Dashboard → SMTP & API → SMTP tab
+
+### Cloudinary Setup
+Cloudinary handles profile photo uploads from the frontend directly.
+
+```properties
+# Not needed in backend if uploading directly from frontend
+# If backend handles upload, configure:
+cloudinary.cloud-name=your_cloud_name
+cloudinary.api-key=your_api_key
+cloudinary.api-secret=your_api_secret
+```
 
 ---
 
